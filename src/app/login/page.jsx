@@ -3,6 +3,8 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
+import "../../components/styles/login.css"
+
 export default function LoginUsers() {
   //Mensage de STATUS!
   const [msg, setMsg] = useState("");
@@ -76,45 +78,45 @@ export default function LoginUsers() {
   };
 
   return (
-    <div>
-      <h1>IDENTIFICAÇÃO DOS USUÁRIOS</h1>
+    <div className="container-login">
+      <div className="login">
+        <h1>BEM-VINDO</h1>
+          <h2 className={msg == "Login efetuado com Sucesso!!" ? "msg-success-login":"msg-error-login"}>{msg}</h2>
 
-        <h2 className={msg == "Login efetuado com Sucesso!!" ? "msg-success-login":"msg-error-login"}>{msg}</h2>
-
-      <div className="form-login">
-        <form onSubmit={handleSubmit}>
-          <fieldset>
-            <legend>LOGIN</legend>
-            <div>
-              <label htmlFor="idEmail">Email:</label>
-              <input
-                type="email"
-                name="email"
-                id="idEmail"
-                placeholder="Digite seu email."
-                value={usuario.email}
-                onChange={handleChange}
-              />
-            </div>
-            <div>
-              <label htmlFor="idSenha">Senha:</label>
-              <input
-                type="password"
-                name="senha"
-                id="idSenha"
-                placeholder="Digite sua senha."
-                value={usuario.senha}
-                onChange={handleChange}
-              />
-            </div>
-            <div>
-              <button>LOGIN</button>
-            </div>
-            <div className="p-5 m-auto w-2/4">
-              <p>Se você não é cadastrado em nosso sistema, <Link href="/login/cad" className="text-amber-500 hover:text-amber-200">CLIQUE AQUI</Link> para se registrar.</p>
-            </div>
-          </fieldset>
-        </form>
+        <div className="form-login">
+          <form onSubmit={handleSubmit}>
+            
+              <div className="email-input">
+                <label htmlFor="idEmail">Email:</label>
+                <input
+                  type="email"
+                  name="email"
+                  id="idEmail"
+                  placeholder="Digite seu email."
+                  value={usuario.email}
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="senha-input">
+                <label htmlFor="idSenha">Senha:</label>
+                <input
+                  type="password"
+                  name="senha"
+                  id="idSenha"
+                  placeholder="Digite sua senha."
+                  value={usuario.senha}
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="container-button-login">
+                <button>LOGIN</button>
+              </div>
+              <div className="login-texto p-5 m-auto w-2/4">
+                <p>Se você não é cadastrado em nosso sistema, <Link href="/login/cad" className="text-amber-500 hover:text-amber-200">CLIQUE AQUI</Link> para se registrar.</p>
+              </div>
+          
+          </form>
+          </div>
       </div>
     </div>
   );

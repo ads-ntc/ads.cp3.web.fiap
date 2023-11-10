@@ -3,6 +3,8 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
+import "../../../components/styles/cadastro.css";
+
 export default function CadUsers({ params }) {
   //Mensage de STATUS!
   const [msg, setMsg] = useState("");
@@ -62,16 +64,16 @@ export default function CadUsers({ params }) {
   };
 
   return (
-    <div>
-      <h1>CADATRO DE USUÁRIOS</h1>
+    <div className="container-cadastro">
+      <div className="login">
+      <h1>CADASTRO</h1>
 
       <h2 className={msg == "Cadastro efetuado com Sucesso!!" ? "msg-success-login" : "msg-error-login" }>{msg}</h2>
 
       <div className="form-login">
         <form onSubmit={handleSubmit}>
-          <fieldset>
-            <legend>CADASTRO</legend>
-            <div>
+          
+            <div className="nome-input">
               <label htmlFor="idNome">Nome:</label>
               <input
                 type="text"
@@ -82,7 +84,7 @@ export default function CadUsers({ params }) {
                 onChange={handleChange}
               />
             </div>
-            <div>
+            <div className="email-input">
               <label htmlFor="idEmail">Email:</label>
               <input
                 type="email"
@@ -93,7 +95,7 @@ export default function CadUsers({ params }) {
                 onChange={handleChange}
               />
             </div>
-            <div>
+            <div className="senha-input">
               <label htmlFor="idSenha">Senha:</label>
               <input
                 type="password"
@@ -104,10 +106,10 @@ export default function CadUsers({ params }) {
                 onChange={handleChange}
               />
             </div>
-            <div>
+            <div className="container-button-login">
               <button>CADASTRAR</button>
             </div>
-            <div className="p-5 m-auto w-2/4">
+            <div className="login-texto p-5 m-auto w-2/4">
               <p>
                 Se você ja é cadastrado em nosso sistema,{" "}
                 <Link
@@ -119,8 +121,9 @@ export default function CadUsers({ params }) {
                 para acessar nosso sistema.
               </p>
             </div>
-          </fieldset>
+          
         </form>
+        </div>
       </div>
     </div>
   );
