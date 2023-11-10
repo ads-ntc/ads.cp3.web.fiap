@@ -9,14 +9,16 @@ export default function Home() {
   return (
     <div>
       <div className="container-home">
-        <div>
-        <h1>Produtos em geral</h1>
+        <div className="conteudo-home">
+        <h1>NTC MODAS</h1>
         <p>O melhor da moda, você encontra aqui!</p>
         </div>
-        <figure>
-          <Image src={Logo} width={400} height={400} alt="Tenis" />
-          <figcaption>Roupas em geral</figcaption>
-        </figure>
+      </div>
+      <div className="container-modelos">
+        <div>
+
+        </div>
+
       </div>
     </div>
   )
